@@ -1,3 +1,5 @@
+// ./mvnw spring-boot:run
+
 package com.citas_medicas.backend;
 
 import com.citas_medicas.backend.entity.Doctor;
