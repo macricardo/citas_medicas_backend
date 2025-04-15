@@ -2,7 +2,7 @@
 
 package com.citas_medicas.backend;
 
-import com.citas_medicas.backend.entity.Doctor;
+import com.citas_medicas.backend.models.Doctor;
 import com.citas_medicas.backend.repository.DoctorRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
