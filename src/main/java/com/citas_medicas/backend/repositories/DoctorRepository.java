@@ -1,4 +1,4 @@
-package com.citas_medicas.backend.repository;
+package com.citas_medicas.backend.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -11,8 +11,8 @@ import java.util.List;
 
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
     
-    // Find a doctor by email
-    Optional<Doctor> findByName(String nombre);
+    // Find a doctor by nombre
+    Optional<Doctor> findByNombre(String nombre);
 
     // Find doctors by status ID
     List<Doctor> findByStatusId(Integer statusId);
