@@ -1,0 +1,40 @@
+package com.citas_medicas.backend.models;
+
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "consultorios")  // Match with the database table.
+public class Consultorio {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "nombre", length = 50)
+    private String nombre;
+
+    @Column(name = "ubicacion", length = 100)
+    private String ubicacion;
+
+    @Column(name = "fecha_creado")
+    private LocalDateTime fechaCreado;
+
+    @Column(name = "fecha_update")
+    private LocalDateTime fechaUpdate;
+
+    // Getters and setters (required by JPA).
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+
+    public String getUbicacion() { return ubicacion; }
+    public void setUbicacion(String ubicacion) { this.ubicacion = ubicacion; }
+
+    public LocalDateTime getFechaCreado() { return fechaCreado; }
+    public void setFechaCreado(LocalDateTime fechaCreado) { this.fechaCreado = fechaCreado; }
+
+    public LocalDateTime getFechaUpdate() { return fechaUpdate; }
+    public void setFechaUpdate(LocalDateTime fechaUpdate) { this.fechaUpdate = fechaUpdate; }
+}

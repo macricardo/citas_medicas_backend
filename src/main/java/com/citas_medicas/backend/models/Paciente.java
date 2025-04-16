@@ -4,32 +4,32 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "doctores")  // Match con la base de datos.
-public class Doctor {
+@Table(name = "pacientes")  // Match with the database table.
+public class Paciente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "doctor_nombre")
+    @Column(name = "paciente_nombre", nullable = false)
     private String nombre;
 
-    @Column(name = "doctor_email", unique = true)
+    @Column(name = "paciente_email", unique = true)
     private String email;
 
-    @Column(name = "doctor_password")
+    @Column(name = "paciente_password")
     private String password;
 
-    @Column(name = "doctor_telefono")
+    @Column(name = "paciente_telefono")
     private String telefono;
 
-    @Column(name = "doctor_rfc", unique = true)
+    @Column(name = "paciente_rfc", unique = true)
     private String rfc;
 
-    @Column(name = "doctor_status_id")
-    private Integer statusId;
+    @Column(name = "paciente_direccion")
+    private String direccion;
 
-    @Column(name = "consultorio_id")
-    private Integer consultorioId;
+    @Column(name = "paciente_status_id")
+    private Integer statusId;
 
     @Column(name = "fecha_creado")
     private LocalDateTime fechaCreado;
@@ -37,7 +37,7 @@ public class Doctor {
     @Column(name = "fecha_update")
     private LocalDateTime fechaUpdate;
 
-    // Getters y setters (requeridos por JPA).
+    // Getters and setters (required by JPA).
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -56,11 +56,11 @@ public class Doctor {
     public String getRfc() { return rfc; }
     public void setRfc(String rfc) { this.rfc = rfc; }
 
+    public String getDireccion() { return direccion; }
+    public void setDireccion(String direccion) { this.direccion = direccion; }
+
     public Integer getStatusId() { return statusId; }
     public void setStatusId(Integer statusId) { this.statusId = statusId; }
-
-    public Integer getConsultorioId() { return consultorioId; }
-    public void setConsultorioId(Integer consultorioId) { this.consultorioId = consultorioId; }
 
     public LocalDateTime getFechaCreado() { return fechaCreado; }
     public void setFechaCreado(LocalDateTime fechaCreado) { this.fechaCreado = fechaCreado; }
