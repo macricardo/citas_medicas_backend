@@ -1,4 +1,4 @@
-// ./mvnw spring-boot:run
+// ./mvn spring-boot:run
 
 package com.citas_medicas.backend;
 
