@@ -23,4 +23,7 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
 
     // Check if a doctor exists by RFC
     boolean existsByRfc(String rfc);
+
+    // ...encontrar por email para hacer el login.
+    Optional<Doctor> findByEmail(String email);
 }
