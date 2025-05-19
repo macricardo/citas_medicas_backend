@@ -3,10 +3,13 @@ package com.citas_medicas.backend.controllers;
 import com.citas_medicas.backend.dto.LoginRequest;
 import com.citas_medicas.backend.models.Doctor;
 import com.citas_medicas.backend.repositories.DoctorRepository;
+import com.citas_medicas.backend.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -22,8 +25,15 @@ public class AuthController {
         if (doctorOpt.isPresent()) {
             Doctor doctor = doctorOpt.get();
             if (doctor.getPassword().equals(loginRequest.getPassword())) {
-                // Puedes devolver solo el nombre, id, email, etc. (no la contraseña)
-                return ResponseEntity.ok(doctor);
+                String token = JwtUtil.generateToken(doctor.getEmail());
+                Map<String, Object> response = new HashMap<>();
+                response.put("token", token);
+                response.put("doctor", Map.of(
+                    "id", doctor.getId(),
+                    "nombre", doctor.getNombre(),
+                    "email", doctor.getEmail()
+                ));
+                return ResponseEntity.ok(response);
             }
         }
         return ResponseEntity.status(401).body("Credenciales incorrectas");
