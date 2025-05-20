@@ -3,3 +3,9 @@ Diagrama de Base de Datos
 <br>
 Controller "/doctores"
 ![Controller "/doctores"](/readme/doctores.jpg)
+
+Controller "doctor-pacientes"
+![Controller "/doctores"](/readme/doctor-pacientes.jpg)
+
+Controller "historial"
+![Controller "/doctores"](/readme/historial.jpg)
