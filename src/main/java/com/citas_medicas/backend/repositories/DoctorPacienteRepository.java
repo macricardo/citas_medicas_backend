@@ -9,6 +9,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface DoctorPacienteRepository extends JpaRepository<DoctorPaciente, Long> {
-    @Query("SELECT dp.paciente FROM DoctorPaciente dp WHERE dp.doctor.id = :doctorId AND (dp.activo = true OR dp.activo IS NULL)")
+    @Query("SELECT dp.paciente FROM DoctorPaciente dp WHERE dp.doctor.id = :doctorId AND (dp.activo = true OR dp.activo IS NULL) AND dp.paciente.statusId = 1")
     List<Paciente> findPacientesByDoctorId(@Param("doctorId") Long doctorId);
 }
